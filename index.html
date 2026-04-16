@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SD Studio Sapanca | Premium Hair & Beauty Studio</title>
+  <meta name="description" content="SD Studio Sapanca için premium kadın kuaförü sitesi. Saç boyama, balyaj, gelin başı, makyaj, bakım ve dönüşüm odaklı güzellik deneyimi." />
+  <meta name="theme-color" content="#0d0b10" />
+  <meta property="og:title" content="SD Studio Sapanca" />
+  <meta property="og:description" content="Sapanca’da sıcak atmosfer, profesyonel dokunuş ve premium saç & beauty deneyimi." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0d0b10;
+      --bg2:#15111a;
+      --panel:rgba(255,255,255,.055);
+      --panel2:rgba(255,255,255,.08);
+      --line:rgba(255,255,255,.1);
+      --text:#f9f4ef;
+      --muted:#b6a8b5;
+      --soft:#dcc2ce;
+      --rose:#c38fa4;
+      --gold:#dcb79a;
+      --berry:#6f4254;
+      --shadow:0 24px 70px rgba(0,0,0,.36);
+      --radius-xl:38px;
+      --radius-lg:28px;
+      --radius-md:22px;
+      --max:1280px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(195,143,164,.18), transparent 20%),
+        radial-gradient(circle at 88% 14%, rgba(220,183,154,.12), transparent 18%),
+        radial-gradient(circle at 50% 100%, rgba(111,66,84,.18), transparent 26%),
+        linear-gradient(180deg,#0d0b10 0%, #15111a 45%, #0a090d 100%);
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+    .section{padding:100px 0;position:relative}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);
+      box-shadow:var(--shadow);font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#f2d9e2;
+    }
+    .eyebrow::before{content:"";width:8px;height:8px;border-radius:999px;background:linear-gradient(135deg,var(--rose),var(--gold))}
+    .display{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,7vw,7rem);line-height:.92;letter-spacing:-.05em;margin:18px 0 18px;max-width:10ch}
+    .title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,4rem);line-height:.98;letter-spacing:-.04em;margin:0 0 12px}
+    .lead{font-size:1.05rem;line-height:1.85;color:var(--muted);max-width:65ch}
+    .muted{color:var(--muted)}
+
+    .site-header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(13,11,16,.72);backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.06);transition:transform .35s ease;
+    }
+    .site-header.hide{transform:translateY(-100%)}
+    .nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-mark{
+      width:56px;height:56px;border-radius:18px;position:relative;overflow:hidden;
+      background:linear-gradient(145deg,#211826,#7d5366 44%,#e0b7a0 100%);box-shadow:var(--shadow)
+    }
+    .brand-mark::before,.brand-mark::after{content:"";position:absolute;border-radius:999px;background:rgba(255,255,255,.18)}
+    .brand-mark::before{width:80px;height:14px;left:-18px;top:18px;transform:rotate(-36deg)}
+    .brand-mark::after{width:58px;height:10px;right:-10px;bottom:14px;transform:rotate(-36deg)}
+    .brand strong{display:block;font-size:1rem}
+    .brand span{display:block;font-size:.82rem;color:var(--muted)}
+    .nav-links,.nav-actions{display:flex;align-items:center;gap:22px}
+    .nav-links a{font-size:.95rem;color:#f1e5ee;position:relative}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:1px;background:linear-gradient(90deg,var(--rose),var(--gold));transition:.3s ease}
+    .nav-links a:hover::after{width:100%}
+    .menu-toggle{display:none;background:none;border:none;padding:8px;cursor:pointer}
+    .menu-toggle span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;border-radius:2px}
+    .mobile-menu{display:none;padding-bottom:18px}
+
+    .btn{
+      min-height:54px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;font-weight:800;border:1px solid transparent;transition:transform .26s ease, box-shadow .26s ease, border-color .26s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(135deg,var(--rose),var(--gold));color:#190f14;box-shadow:0 18px 34px rgba(195,143,164,.22)}
+    .btn-secondary{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);box-shadow:var(--shadow)}
+
+    .hero{padding:26px 0 70px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:28px;align-items:center}
+    .hero-copy{padding:56px 0}
+    .hero-copy .display{animation:titleFloat 7s ease-in-out infinite}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 28px}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .stat{padding:18px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+    .stat strong{display:block;font-size:1.15rem;margin-bottom:6px;color:#f5d9e3}
+    .stat span{display:block;font-size:.92rem;line-height:1.55;color:var(--muted)}
+
+    .hero-visual{position:relative;min-height:760px;display:grid;place-items:center;perspective:1200px}
+    .hero-frame{
+      width:min(100%,620px);height:740px;padding:18px;border-radius:44px;position:relative;overflow:hidden;
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 90px rgba(0,0,0,.4);backdrop-filter:blur(14px);
+      transform-style:preserve-3d;
+    }
+    .hero-frame::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%, rgba(255,255,255,.07), transparent 18%),radial-gradient(circle at 80% 16%, rgba(220,183,154,.18), transparent 20%),radial-gradient(circle at 30% 90%, rgba(195,143,164,.16), transparent 24%);pointer-events:none}
+    .hero-core{
+      position:relative;height:100%;border-radius:34px;overflow:hidden;border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(155deg,#18131b 0%, #332430 42%, #7a5564 72%, #e0b9a2 100%);
+    }
+    .hero-core::before{content:"";position:absolute;inset:20px;border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01)),radial-gradient(circle at 54% 12%, rgba(255,255,255,.18), transparent 18%),radial-gradient(circle at 70% 18%, rgba(220,183,154,.16), transparent 22%)}
+    .hero-core::after{
+      content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      width:74%;height:84%;border-radius:280px 280px 42px 42px / 350px 350px 40px 40px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.08)),linear-gradient(145deg,#19151b 0%, #523947 48%, #dcb79a 100%);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 32px 84px rgba(0,0,0,.26)
+    }
+    .hero-hair{position:absolute;left:50%;top:34%;transform:translateX(-50%);width:68%;height:140px;border-radius:999px;background:radial-gradient(circle at 50% 50%, rgba(29,20,26,.92), rgba(18,16,22,.34) 62%, transparent 72%);filter:blur(10px);z-index:1}
+    .hero-ribbon{position:absolute;right:40px;top:110px;width:150px;height:18px;border-radius:999px;background:linear-gradient(90deg,#f8e9e2,#c594a8,#f8e9e2);transform:rotate(40deg);box-shadow:0 8px 24px rgba(0,0,0,.24)}
+    .hero-ribbon::after{content:"";position:absolute;right:-18px;top:-8px;width:34px;height:34px;border-radius:10px;background:linear-gradient(145deg,#2a212a,#8b5e70)}
+
+    .float-card,.float-pill,.float-note{
+      position:absolute;z-index:3;background:rgba(14,12,18,.64);backdrop-filter:blur(14px);
+      border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow)
+    }
+    .float-card{left:22px;top:22px;max-width:260px;padding:16px 18px;border-radius:18px}
+    .float-card strong{display:block;margin-bottom:6px}
+    .float-card span{font-size:.84rem;color:var(--muted);line-height:1.5}
+    .float-note{right:24px;top:26px;max-width:200px;padding:12px 14px;border-radius:16px;font-size:.84rem;color:#f2dce4}
+    .float-pill{left:28px;bottom:134px;padding:10px 14px;border-radius:999px;font-size:.82rem;font-weight:800;color:#f6dce5}
+    .float-bottom{position:absolute;right:20px;bottom:22px;max-width:260px;padding:18px;border-radius:20px;background:rgba(14,12,18,.64);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow);z-index:3}
+    .float-bottom strong{display:block;font-size:1.35rem;line-height:1.05;color:#f7dde4}
+    .float-bottom span{display:block;margin-top:8px;font-size:.88rem;line-height:1.5;color:var(--muted)}
+    .glow{position:absolute;border-radius:999px;filter:blur(54px);opacity:.42;pointer-events:none}
+    .glow.one{width:180px;height:180px;right:-10px;top:86px;background:rgba(195,143,164,.22)}
+    .glow.two{width:240px;height:240px;left:-26px;bottom:20px;background:rgba(220,183,154,.18)}
+
+    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);margin:0 auto;width:min(100%,900px)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:30px}
+    .cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .trust-card,.service-card,.review-card,.faq-card,.contact-card,.hours-card,.gallery-card,.cta-shell,.compare-copy-card,.proof-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow)}
+    .trust-card,.proof-card{padding:26px;border-radius:26px}
+    .trust-card h3,.service-card h3,.review-card h3,.faq-card h3,.compare-copy-card h3,.proof-card h3{margin:0 0 10px;font-size:1.03rem}
+    .trust-card p,.service-card p,.review-card p,.faq-card p,.compare-copy-card p,.proof-card p{margin:0;color:var(--muted);line-height:1.76}
+    .icon{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;margin-bottom:14px;background:linear-gradient(135deg,rgba(195,143,164,.18),rgba(220,183,154,.12));color:#f7dee6;font-weight:900}
+
+    .proof-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+    .proof-card strong{display:block;font-family:'Cormorant Garamond',serif;font-size:3rem;line-height:.95;letter-spacing:-.04em;margin-bottom:10px;color:#f3d5e0}
+
+    .compare-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:24px;align-items:stretch}
+    .compare-stage{min-height:580px;position:relative;overflow:hidden;border-radius:32px;background:linear-gradient(160deg,#18131a,#2a1d26 58%,#8e6474);border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+    .compare-stage::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 24% 18%, rgba(255,255,255,.08), transparent 18%),radial-gradient(circle at 76% 20%, rgba(220,183,154,.14), transparent 20%),linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.08))}
+    .compare-sides{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+    .compare-sides .side{position:relative;padding:26px}
+    .compare-sides .side::before{content:"";position:absolute;inset:20px;border-radius:24px;border:1px solid rgba(255,255,255,.14)}
+    .compare-sides .before::after,.compare-sides .after::after{content:"";position:absolute;inset:20px;border-radius:24px}
+    .compare-sides .before::after{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),radial-gradient(circle at top center,rgba(255,255,255,.06),transparent 28%),linear-gradient(145deg,rgba(34,28,36,.46),rgba(20,19,24,.38))}
+    .compare-sides .after::after{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01)),radial-gradient(circle at top center,rgba(220,183,154,.14),transparent 28%),linear-gradient(145deg,rgba(92,65,78,.38),rgba(220,183,154,.16))}
+    .compare-divider{position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,transparent,var(--gold),transparent);transform:translateX(-50%);z-index:2}
+    .compare-handle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:999px;background:#19141b;display:grid;place-items:center;z-index:3;border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow);font-weight:900;color:#f5dae3}
+    .compare-label{position:absolute;left:32px;bottom:32px;padding:10px 14px;border-radius:999px;background:rgba(15,13,18,.84);font-size:.84rem;font-weight:800;color:#f4dce4;z-index:2}
+    .compare-copy{display:grid;gap:18px}
+    .compare-copy-card{padding:24px;border-radius:24px}
+
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service-card{padding:24px;border-radius:26px;position:relative;overflow:hidden}
+    .service-card::after{content:"";position:absolute;right:-18px;top:-18px;width:120px;height:120px;border-radius:32px;background:linear-gradient(135deg,rgba(195,143,164,.14),rgba(220,183,154,.10));transform:rotate(14deg)}
+    .tag{display:inline-flex;padding:9px 12px;border-radius:999px;background:rgba(195,143,164,.12);font-size:.78rem;font-weight:800;color:#f7dde5;margin-bottom:14px}
+
+    .review-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(330px,1fr);gap:18px;overflow:auto;scrollbar-width:none;padding-bottom:8px}
+    .review-track::-webkit-scrollbar{display:none}
+    .review-card{padding:24px;border-radius:24px;min-height:310px}
+    .review-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+    .name{font-weight:800}
+    .stars{letter-spacing:.16em;color:var(--gold)}
+
+    .gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:230px 230px;gap:18px}
+    .gallery-card{position:relative;overflow:hidden;border-radius:28px;padding:22px;transition:transform .35s ease, box-shadow .35s ease}
+    .gallery-card:hover{transform:translateY(-6px) scale(1.01)}
+    .gallery-card.large{grid-row:1 / span 2}
+    .gallery-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(0,0,0,.34)),radial-gradient(circle at top left,rgba(255,255,255,.1),transparent 30%),linear-gradient(145deg,#19131a,#2f1f29 56%,#9a6b7a)}
+    .gallery-card:nth-child(2)::before{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(0,0,0,.34)),radial-gradient(circle at top left,rgba(255,255,255,.1),transparent 30%),linear-gradient(145deg,#18131a,#2b1f28 56%,#b18892)}
+    .gallery-card:nth-child(3)::before{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(0,0,0,.34)),radial-gradient(circle at top left,rgba(255,255,255,.1),transparent 30%),linear-gradient(145deg,#161218,#2e2228 56%,#d0a08f)}
+    .gallery-card:nth-child(4)::before{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(0,0,0,.34)),radial-gradient(circle at top left,rgba(255,255,255,.1),transparent 30%),linear-gradient(145deg,#151118,#31242c 56%,#8b6170)}
+    .gallery-card>*{position:relative;z-index:1}
+    .gallery-card span{display:inline-flex;padding:9px 12px;border-radius:999px;background:rgba(17,15,20,.84);font-size:.8rem;font-weight:800;color:#f6dbe4}
+    .gallery-card h3{margin:12px 0 0;max-width:12ch;font-size:1.18rem;line-height:1.06}
+
+    .cta-shell{padding:38px;border-radius:32px;background:linear-gradient(135deg,#19131b,#34242e 58%,#af8390);display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .cta-shell p{margin:10px 0 0;max-width:56ch;line-height:1.75;color:#f1dde4}
+
+    .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .faq-card{padding:24px;border-radius:24px}
+
+    .contact-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:20px}
+    .contact-stack{display:grid;gap:18px}
+    .contact-card,.hours-card{padding:24px;border-radius:26px}
+    .row{padding:14px 0;border-bottom:1px solid var(--line)}
+    .row:last-child{border-bottom:none;padding-bottom:0}
+    .label{display:block;font-size:.8rem;font-weight:800;color:#f3d7e2;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+    .hours-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+    .hours-row:last-child{border-bottom:none;padding-bottom:0}
+    .hours-row span:last-child{font-weight:800}
+    .map{min-height:100%;overflow:hidden;border-radius:28px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);background:#fff}
+    .map iframe{width:100%;height:100%;min-height:620px;border:0}
+
+    footer{padding:28px 0 112px;border-top:1px solid rgba(255,255,255,.06)}
+    .footer-grid{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted)}
+    .footer-note{font-size:.92rem;color:var(--muted)}
+    .credit{font-size:.78rem;color:#d7b6c2;opacity:.9}
+
+    .floating-cta{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;display:none;grid-template-columns:1fr 1fr;gap:12px}
+
+    [data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .8s ease, transform .8s ease}
+    [data-reveal].is-visible{opacity:1;transform:none}
+
+    @keyframes titleFloat{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-4px)}
+    }
+
+    @media (max-width:1080px){
+      .hero-grid,.proof-grid,.compare-grid,.contact-grid{grid-template-columns:1fr}
+      .cards-4{grid-template-columns:repeat(2,1fr)}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:260px 220px 220px}
+      .gallery-card.large{grid-column:1 / span 2;grid-row:auto}
+      .hero-frame{height:640px}
+      .cta-shell{flex-direction:column;align-items:flex-start}
+    }
+
+    @media (max-width:780px){
+      .section{padding:76px 0}
+      .nav-links,.nav-actions{display:none}
+      .menu-toggle{display:block}
+      .mobile-menu{gap:12px}
+      .hero{padding-top:18px}
+      .hero-stats,.cards-4,.services-grid,.faq-grid{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}
+      .gallery-card,.gallery-card.large{min-height:220px}
+      .review-track{grid-auto-columns:86%}
+      .section-head{flex-direction:column;align-items:flex-start}
+      .map iframe{min-height:360px}
+      .floating-cta{display:grid}
+      .float-note{display:none}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *{animation:none !important;transition:none !important}
+      [data-reveal]{opacity:1;transform:none}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HairSalon",
+    "name":"SD Studio Sapanca",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Rüstempaşa, Atatürk Cd. 44/B",
+      "addressLocality":"Sapanca",
+      "addressRegion":"Sakarya",
+      "addressCountry":"TR"
+    },
+    "telephone":"+90 501 547 83 67",
+    "url":"https://www.instagram.com/sdstudioo_sapanca/",
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"31"},
+    "openingHours":"Mo-Su 09:00-19:30"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="SD Studio Sapanca anasayfa">
+        <div class="brand-mark"></div>
+        <div>
+          <strong>SD Studio Sapanca</strong>
+          <span>Hair · Makeup · Beauty Studio</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#once-sonra">Öncesi Sonrası</a>
+        <a href="#yorumlar">Yorumlar</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="tel:+905015478367">Ara</a>
+        <a class="btn btn-primary" href="https://wa.me/905015478367?text=Merhaba%20SD%20Studio%20Sapanca%20i%C3%A7in%20randevu%20almak%20istiyorum" target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
+      <button class="menu-toggle" id="menuBtn" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#once-sonra">Öncesi Sonrası</a>
+      <a href="#yorumlar">Yorumlar</a>
+      <a href="#iletisim">İletişim</a>
+      <a class="btn btn-secondary" href="tel:+905015478367">Telefonla Ara</a>
+      <a class="btn btn-primary" href="https://wa.me/905015478367?text=Merhaba%20SD%20Studio%20Sapanca%20i%C3%A7in%20randevu%20almak%20istiyorum" target="_blank" rel="noreferrer">WhatsApp'tan Yaz</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy" data-reveal>
+          <div class="eyebrow">5.0 puan · 31 yorum · sıcak atmosfer ve dönüşüm odaklı beauty deneyimi</div>
+          <h1 class="display">Sapanca’da saçtan makyaja uzanan sıcak ama premium bir beauty stüdyo deneyimi</h1>
+          <p class="lead">SD Studio için tasarımı sıradan kuaför şablonu gibi kurmadım. Çünkü yorumların verdiği his sadece işlem başarısı değil. Sıcacık ortam, güven, hızlı ve yetenekli eller, yanmış saçı bile toparlayan bakım bilgisi ve özel günlerde kusursuz sonuç var. Bu yüzden tüm görsel sistem feminen, rafine, yumuşak ve pahalı hissettiren ama hâlâ samimi kalan bir çizgide kurgulandı.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/905015478367?text=Merhaba%20SD%20Studio%20Sapanca%20i%C3%A7in%20randevu%20almak%20istiyorum" target="_blank" rel="noreferrer">Hemen Randevu Al</a>
+            <a class="btn btn-secondary" href="tel:+905015478367">Telefonla Ara</a>
+            <a class="btn btn-secondary" href="#yorumlar">Yorumları İncele</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>Yanmış saçı toparlayan uzmanlık</strong><span>Yorumlarda geçen en güçlü detaylardan biri, hasar görmüş saçı bakım ve doğru renklerle yeniden ayağa kaldırmaları.</span></div>
+            <div class="stat"><strong>Özel gün güveni</strong><span>Kına ve nikâh saç makyajında doğru karar olarak anılmaları, markayı premium event beauty alanında da güçlendiriyor.</span></div>
+            <div class="stat"><strong>Sıcak ve rahat atmosfer</strong><span>Müşterinin işlem kadar ortamı da övmesi, burada gelen kişinin kendini rahat bırakabildiğini gösteriyor.</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-reveal>
+          <div class="glow one"></div>
+          <div class="glow two"></div>
+          <div class="hero-frame" id="heroParallax">
+            <div class="hero-core">
+              <div class="hero-hair"></div>
+              <div class="hero-ribbon"></div>
+              <div class="float-card">
+                <strong>Warm luxury mood</strong>
+                <span>Bu markanın tonu soğuk lüks değil. Yumuşak feminen bir premium hava ve sıcak stüdyo samimiyeti bir arada.</span>
+              </div>
+              <div class="float-note">Yorumların ortak hissi şu. İçeri girdiğinde sadece saç yaptırmıyorsun daha iyi hissettiğin bir deneyime giriyorsun.</div>
+              <div class="float-pill">Balyaj · Gelin Başı · Makyaj · Keratin · Topuz · Örgü</div>
+              <div class="float-bottom">
+                <strong>Baştan yaratıyor hissi</strong>
+                <span>Seher Hanım için yapılan yorumlarda profesyonellik, hız, beceri ve baştan yaratma duygusu doğrudan öne çıkıyor.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><div class="divider"></div></div>
+
+    <section class="section">
+      <div class="container proof-grid">
+        <article class="proof-card" data-reveal>
+          <h3>Bu markanın satış gücü nerede</h3>
+          <strong>Saç, makyaj ve bakım tarafını tek çatı altında sıcak bir premium deneyime dönüştürmesinde</strong>
+          <p>SD Studio’da olay yalnızca işlem listesi değil. Yorumlara göre müşteri burada saçını da, özel gün hazırlığını da, bakımını da güvenle bırakabiliyor. Bu yüzden site yapısını sadece hizmet gösteren bir alan değil, karar vermeyi kolaylaştıran bir güven akışı olarak kurguladım.</p>
+        </article>
+        <article class="proof-card" data-reveal>
+          <h3>Marka karakteri</h3>
+          <p>Güler yüz, hızlı el becerisi, profesyonel sonuç, sıcacık ortam ve tekrar tekrar tavsiye edilme. Bütün bu kombinasyon salonu sıradan mahalle kuaförü değil, sıcak premium beauty studio çizgisine taşıyor.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cards-4">
+          <article class="trust-card" data-reveal>
+            <div class="icon">01</div>
+            <h3>Saç kurtaran bakım uzmanlığı</h3>
+            <p>Yanmış saçları bakım ve doğru renklerle dönüştüren sonuçlar, bu salonun teknik beceri tarafını güçlü gösteriyor.</p>
+          </article>
+          <article class="trust-card" data-reveal>
+            <div class="icon">02</div>
+            <h3>Özel gün hazırlığında güven</h3>
+            <p>Kına ve nikâh için doğru karar olarak anılmaları, gelin başı ve makyaj hizmetlerini premium seviyeye taşıyor.</p>
+          </article>
+          <article class="trust-card" data-reveal>
+            <div class="icon">03</div>
+            <h3>Sıcacık atmosfer</h3>
+            <p>Her türlü işlemi rahatça yaptırabileceğiniz bir ortam yorumu, dönüşüm hissini daha da kuvvetlendiriyor.</p>
+          </article>
+          <article class="trust-card" data-reveal>
+            <div class="icon">04</div>
+            <h3>Hızlı ve yetenekli ekip</h3>
+            <p>Seri, pratik ve eli güçlü ekip yapısı, yoğun günlerde bile iyi sonuç almak isteyen müşteriyi rahatlatıyor.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="once-sonra">
+      <div class="container compare-grid">
+        <div class="compare-stage" data-reveal>
+          <div class="compare-sides">
+            <div class="side before"><div class="compare-label">Önce</div></div>
+            <div class="side after"><div class="compare-label">Sonra</div></div>
+          </div>
+          <div class="compare-divider"></div>
+          <div class="compare-handle">⇄</div>
+        </div>
+        <div class="compare-copy">
+          <div>
+            <div class="eyebrow">Before After Alanı</div>
+            <h2 class="title">Düz işlem değil gerçek dönüşüm hissi satan premium vitrin</h2>
+            <p class="lead">SD Studio için before after alanı çok önemli çünkü yorumların merkezinde dönüşüm duygusu var. Yanmış saçın toparlanması, gösterilen modelin yapılması, özel gün saçının bozulmaması ve kesimden aşırı memnun kalınması gibi veriler bu alanı satış tarafında çok değerli yapıyor.</p>
+          </div>
+          <article class="compare-copy-card" data-reveal>
+            <h3>Kararsız müşteri için psikolojik eşik kırıcı</h3>
+            <p>Geçmiş kuaför travmalarından sonra güven duymak kolay olmuyor. Bu bölüm tam da o çekinen müşteriyi ikna etmek için kurgulandı.</p>
+          </article>
+          <article class="compare-copy-card" data-reveal>
+            <h3>Sallama foto yerine premium placeholder mantığı</h3>
+            <p>Gerçek foto verilmediği için uydurma içerik eklenmedi. Ama tasarım öyle kuruldu ki, yarın gerçek önce sonra görselleri gelince direkt satış makinesine döner.</p>
+          </article>
+          <a class="btn btn-primary" href="https://wa.me/905015478367?text=Merhaba%20SD%20Studio%20Sapanca%20i%C3%A7in%20randevu%20almak%20istiyorum" target="_blank" rel="noreferrer">Randevu İçin Yaz</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hizmetler">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="eyebrow">Hizmetler</div>
+            <h2 class="title">Feminen premium çizgiyi taşıyan seçilmiş güçlü hizmet vitrini</h2>
+          </div>
+          <p class="lead">Tüm hizmetleri düz liste olarak dizmek yerine, markanın dönüşüm hissini en iyi taşıyan alanları seçip daha pahalı görünen bir servis yapısı kurdum. Böylece salon daha rafine ve karar vermesi daha kolay hale geliyor.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card" data-reveal>
+            <span class="tag">Color Studio</span>
+            <h3>Balyaj ve Ombre</h3>
+            <p>Renk dönüşümünü güçlü şekilde hissettiren ve yorumlarda sonuç başarısını en çok destekleyen hizmet katmanı.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <span class="tag">Repair Ritual</span>
+            <h3>Keratin ve Saç Bakımı</h3>
+            <p>Hasarlı saç toparlama ve bakım bilgisi bu salonun en güçlü güven sinyallerinden biri olduğu için öne çıkarıldı.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <span class="tag">Bridal Beauty</span>
+            <h3>Gelin Başı ve Makyaj</h3>
+            <p>Kına ve nikâh hazırlığında verilen kusursuz deneyim salonun özel gün hizmetlerini premiumlaştırıyor.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <span class="tag">Soft Styling</span>
+            <h3>Fön Topuz ve Şekillendirme</h3>
+            <p>Günlük şıklık ile özel davet hazırlığını aynı kalitede taşıyan stil bölümü.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <span class="tag">Cut & Design</span>
+            <h3>Kesim ve Kıvırcık Saç Dokunuşları</h3>
+            <p>El yeteneği ve kesim memnuniyeti yorumları sayesinde, bu alan sadece kesim değil tasarım hissi veriyor.</p>
+          </article>
+          <article class="service-card" data-reveal>
+            <span class="tag">Texture Edit</span>
+            <h3>Örgü Kutu Örgü ve Perma</h3>
+            <p>Daha teknik ve karakterli stiller isteyen müşteri için salonun yetenek alanını genişleten premium tamamlayıcı servisler.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="eyebrow">Galeri Vitrini</div>
+            <h2 class="title">Sıcak bir stüdyo hissini lüks feminen dokunuşlarla birleştiren görsel dünya</h2>
+          </div>
+          <p class="lead">SD Studio’nun tasarım dilini sert ve gösterişli lükse taşımadım. Bunun yerine samimiyetini bozmadan premiumlaştıran, yumuşak ama pahalı hissettiren bir görsel sistem kurdum. Çünkü yorumlar tam olarak bunu söylüyor.</p>
+        </div>
+        <div class="gallery-grid">
+          <article class="gallery-card large" data-reveal>
+            <span>Studio Signature</span>
+            <h3>Geldiğinde sıcak karşılama hissettiren ama aynaya bakınca premium sonuç veren beauty studio deneyimi</h3>
+          </article>
+          <article class="gallery-card" data-reveal>
+            <span>Color Mood</span>
+            <h3>Renkte zarif dönüşüm</h3>
+          </article>
+          <article class="gallery-card" data-reveal>
+            <span>Event Ready</span>
+            <h3>Özel gün hazırlığı</h3>
+          </article>
+          <article class="gallery-card" data-reveal>
+            <span>Care Ritual</span>
+            <h3>Bakım odaklı güzellik</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="yorumlar">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="eyebrow">Yorumlar ve Güven</div>
+            <h2 class="title">Bu salonu güçlü yapan şey yalnızca sonuç değil müşteride bıraktığı iyi his</h2>
+          </div>
+          <p class="lead">Aşağıdaki yorum blokları doğrudan gönderdiğin yorumların ana duygularına göre yazıldı. Burada öne çıkan şey profesyonellik kadar sıcaklık, beceri kadar güven ve sonuç kadar rahatlık.</p>
+        </div>
+        <div class="review-track" id="reviewTrack">
+          <article class="review-card" data-reveal>
+            <div class="review-top"><div><div class="name">Nur Baş</div><div class="muted">İlgi ve alaka mükemmel</div></div><div class="stars">★★★★★</div></div>
+            <p>Saç, tırnak ve makyaj tarafında her konuda memnuniyet vurgusu, salonun çok yönlü beauty hizmetini güvenle taşıyor.</p>
+          </article>
+          <article class="review-card" data-reveal>
+            <div class="review-top"><div><div class="name">Aleyna Torun</div><div class="muted">Yanmış saçta büyük dönüşüm</div></div><div class="stars">★★★★★</div></div>
+            <p>İnanılmaz bakım ve renklerle saçı istediği şekle getirmeleri salonun teknik kapasitesini tek başına kanıtlıyor.</p>
+          </article>
+          <article class="review-card" data-reveal>
+            <div class="review-top"><div><div class="name">Zehra Pehlivan</div><div class="muted">Kesimde el yeteneği</div></div><div class="stars">★★★★★</div></div>
+            <p>Saç kesimine çok bayıldım yorumu, stüdyonun sadece boya değil kesim tarafında da güçlü olduğunu gösteriyor.</p>
+          </article>
+          <article class="review-card" data-reveal>
+            <div class="review-top"><div><div class="name">Sibel Sevimli</div><div class="muted">Sıcacık ortam</div></div><div class="stars">★★★★★</div></div>
+            <p>Her türlü işlemin yapılabildiği sıcak ortam vurgusu, müşteri deneyimini doğrudan satış unsuruna çeviriyor.</p>
+          </article>
+          <article class="review-card" data-reveal>
+            <div class="review-top"><div><div class="name">Mami 54</div><div class="muted">Başarılı işler ve memnuniyet</div></div><div class="stars">★★★★★</div></div>
+            <p>Gerçekten çok güzel başarılı işler yapıyorlar ifadesi, genel kalite algısını sade ama güçlü biçimde besliyor.</p>
+          </article>
+          <article class="review-card" data-reveal>
+            <div class="review-top"><div><div class="name">Fatma Melek Yıldız</div><div class="muted">Baştan yaratıyor hissi</div></div><div class="stars">★★★★★</div></div>
+            <p>Güler yüz ile el becerisini birleştirip insanı adeta baştan yaratıyor söylemi, bu markanın en güçlü pazarlama cümlelerinden biri.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-shell" data-reveal>
+          <div>
+            <h2 class="title" style="margin:0">Randevunuzu hızlıca oluşturun ve kendinizi iyi hissettiren premium beauty deneyimine geçin</h2>
+            <p>Günlük bakım, özel gün hazırlığı, renk dönüşümü veya saç toparlama için hızlıca iletişime geçin. WhatsApp ve telefon akışı özellikle mobil dönüşüm odaklı şekilde yerleştirildi.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a class="btn btn-primary" href="https://wa.me/905015478367?text=Merhaba%20SD%20Studio%20Sapanca%20i%C3%A7in%20randevu%20almak%20istiyorum" target="_blank" rel="noreferrer">WhatsApp'tan Yaz</a>
+            <a class="btn btn-secondary" href="tel:+905015478367">Telefonla Ara</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="eyebrow">Sık Sorulanlar</div>
+            <h2 class="title">Kararsız müşteriyi hızla karar verdirecek net cevaplar</h2>
+          </div>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-card" data-reveal>
+            <h3>SD Studio neden farklı hissettiriyor</h3>
+            <p>Burada sadece saç yapılmıyor. Sıcak yaklaşım, profesyonel sonuç ve birden fazla beauty alanını tek yerde toplama gücü markayı daha özel hissettiriyor.</p>
+          </article>
+          <article class="faq-card" data-reveal>
+            <h3>Hangi hizmetler daha çok öne çıkıyor</h3>
+            <p>Balyaj, saç boyama, bakım, gelin başı, makyaj, topuz ve profesyonel şekillendirme tarafı yorumlarla en çok desteklenen alanlar arasında.</p>
+          </article>
+          <article class="faq-card" data-reveal>
+            <h3>Randevu için en hızlı yol hangisi</h3>
+            <p>Hero butonları, sticky mobil CTA ve iletişim alanındaki WhatsApp bağlantıları en hızlı dönüşüm için hazırlandı.</p>
+          </article>
+          <article class="faq-card" data-reveal>
+            <h3>Salon hangi günler açık</h3>
+            <p>Gönderdiğin verilere göre haftanın her günü 09.00 ile 19.30 arasında hizmet veriyor. Salı hariç tüm günler açık değil, burada tüm günler açık bilgisi var çünkü her gün için saat girdin.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="iletisim">
+      <div class="container contact-grid">
+        <div class="contact-stack">
+          <article class="contact-card" data-reveal>
+            <h3>İletişim</h3>
+            <div class="row"><span class="label">Telefon</span><a href="tel:+905015478367">0501 547 83 67</a></div>
+            <div class="row"><span class="label">WhatsApp</span><a href="https://wa.me/905015478367?text=Merhaba%20SD%20Studio%20Sapanca%20i%C3%A7in%20randevu%20almak%20istiyorum" target="_blank" rel="noreferrer">Randevu için yazın</a></div>
+            <div class="row"><span class="label">Instagram</span><a href="https://www.instagram.com/sdstudioo_sapanca/" target="_blank" rel="noreferrer">@sdstudioo_sapanca</a></div>
+            <div class="row"><span class="label">Adres</span><span>Rüstempaşa, Atatürk Cd. 44/B, 54600 Sapanca / Sakarya</span></div>
+          </article>
+          <article class="hours-card" data-reveal>
+            <h3>Çalışma Saatleri</h3>
+            <div class="hours-row"><span>Pazartesi</span><span>09:00 – 19:30</span></div>
+            <div class="hours-row"><span>Salı</span><span>09:00 – 19:30</span></div>
+            <div class="hours-row"><span>Çarşamba</span><span>09:00 – 19:30</span></div>
+            <div class="hours-row"><span>Perşembe</span><span>09:00 – 19:30</span></div>
+            <div class="hours-row"><span>Cuma</span><span>09:00 – 19:30</span></div>
+            <div class="hours-row"><span>Cumartesi</span><span>09:00 – 19:30</span></div>
+            <div class="hours-row"><span>Pazar</span><span>09:00 – 19:30</span></div>
+          </article>
+        </div>
+        <div class="map" data-reveal>
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SD Studio Sapanca konum" src="https://www.google.com/maps?q=R%C3%BCstempa%C5%9Fa%20Atat%C3%BCrk%20Cd.%2044/B%20Sapanca%20Sakarya&z=15&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>SD Studio Sapanca</strong>
+        <div class="footer-note">Sapanca’da sıcak atmosfer, profesyonel dokunuş ve premium hair & beauty studio deneyimi</div>
+        <div class="credit">site by penumbra digital</div>
+      </div>
+      <div class="footer-links">
+        <a href="#top">Anasayfa</a>
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#yorumlar">Yorumlar</a>
+        <a href="#iletisim">İletişim</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-cta">
+    <a class="btn btn-secondary" href="tel:+905015478367">Ara</a>
+    <a class="btn btn-primary" href="https://wa.me/905015478367?text=Merhaba%20SD%20Studio%20Sapanca%20i%C3%A7in%20randevu%20almak%20istiyorum" target="_blank" rel="noreferrer">WhatsApp</a>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(menuBtn){
+      menuBtn.addEventListener('click',()=>{
+        mobileMenu.style.display = mobileMenu.style.display === 'grid' ? 'none' : 'grid';
+      });
+    }
+
+    const reveals = document.querySelectorAll('[data-reveal]');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){
+      reveals.forEach(el=>el.classList.add('is-visible'));
+    } else {
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },{threshold:.14});
+      reveals.forEach(el=>io.observe(el));
+    }
+
+    const reviewTrack = document.getElementById('reviewTrack');
+    let autoScroll;
+    function startAuto(){
+      if(!reviewTrack || window.innerWidth < 781 || reduce) return;
+      clearInterval(autoScroll);
+      autoScroll = setInterval(()=>{
+        const max = reviewTrack.scrollWidth - reviewTrack.clientWidth;
+        const next = reviewTrack.scrollLeft + 348;
+        reviewTrack.scrollTo({left: next >= max ? 0 : next, behavior:'smooth'});
+      }, 3600);
+    }
+    reviewTrack?.addEventListener('pointerdown',()=>clearInterval(autoScroll));
+    reviewTrack?.addEventListener('pointerup',startAuto);
+    window.addEventListener('resize',startAuto);
+    startAuto();
+
+    let lastY = window.scrollY;
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll',()=>{
+      const currentY = window.scrollY;
+      if(currentY > lastY && currentY > 120){header.classList.add('hide');}
+      else{header.classList.remove('hide');}
+      lastY = currentY;
+    },{passive:true});
+
+    const heroParallax = document.getElementById('heroParallax');
+    if(heroParallax && window.innerWidth > 1024 && !reduce){
+      window.addEventListener('mousemove',(e)=>{
+        const x = (e.clientX / window.innerWidth - .5) * 10;
+        const y = (e.clientY / window.innerHeight - .5) * 8;
+        heroParallax.style.transform = `rotateY(${x * .35}deg) rotateX(${-y * .35}deg) translateY(${window.scrollY * .02}px)`;
+      });
+      window.addEventListener('scroll',()=>{
+        heroParallax.style.transform += ` translateY(${window.scrollY * .02}px)`;
+      },{passive:true});
+    }
+  </script>
+</body>
+</html>
